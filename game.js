@@ -26,3 +26,16 @@ const setup = () => {
     flight = jump;
 }
 
+flyHeight = (canvas.height / 2) - (size[1] / 2);
+
+pipes = Array(3).fill().map((a, i) => [canvas.width + (i * (pipeGap + pipeWidth)), pipeLoc()]);
+
+const render = () => {
+    index++;
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height, -((index * (speed / 2)) % canvas.width) + canvas.width, 0, canvas.width, canvas.height);
+  
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height, -(index * (speed / 2)) % canvas.width, 0, canvas.width, canvas.height);
+
+    
+  
+}
