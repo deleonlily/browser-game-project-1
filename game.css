@@ -6,3 +6,14 @@ body {
     text-align: center;
     font-family: 'Chakra Petch', sans-serif;;
 }
+
+header {
+    margin: 0 auto;
+    width: 431px;
+}
+
+h1 {
+    background: url("https://i.ibb.co/Q9yv5Jk/flappy-bird-set.png") 0% 340px;
+    padding: 1.2rem 0;
+    margin: 0;
+}
