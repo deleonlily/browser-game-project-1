@@ -36,6 +36,31 @@ const render = () => {
   
     ctx.drawImage(img, 0, 0, canvas.width, canvas.height, -(index * (speed / 2)) % canvas.width, 0, canvas.width, canvas.height);
 
+    if (gamePlaying){
+        pipes.map(pipe => {
+          
+          pipe[0] -= speed;
     
-  
+          
+          ctx.drawImage(img, 432, 588 - pipe[1], pipeWidth, pipe[1], pipe[0], 0, pipeWidth, pipe[1]);
+        
+          ctx.drawImage(img, 432 + pipeWidth, 108, pipeWidth, canvas.height - pipe[1] + pipeGap, pipe[0], pipe[1] + pipeGap, pipeWidth, canvas.height - pipe[1] + pipeGap);
+    
+          if(pipe[0] <= -pipeWidth){
+            currentScore++;
+            bestScore = Math.max(bestScore, currentScore);
+            pipes = [...pipes.slice(1), [pipes[pipes.length-1][0] + pipeGap + pipeWidth, pipeLoc()]];
+            console.log(pipes);
+          }
+        
+          if ([
+            pipe[0] <= cTenth + size[0], 
+            pipe[0] + pipeWidth >= cTenth, 
+            pipe[1] > flyHeight || pipe[1] + pipeGap < flyHeight + size[1]
+          ].every(elem => elem)) {
+            gamePlaying = false;
+            setup();
+          }
+        })
+      }
 }
