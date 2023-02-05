@@ -1,5 +1,5 @@
 const canvas = document.getElementById('canvas');
-const ctx = canvas.getcontext('2d');
+const ctx = canvas.getContext('2d');
 const img = newImage();
 img.src = "https://i.ibb.co/Q9yv5Jk/flappy-bird-set.png";
 
